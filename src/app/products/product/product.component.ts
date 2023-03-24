@@ -20,6 +20,8 @@ export class ProductComponent {
     const routeParams = this.route.snapshot.paramMap;
     const productId = Number(routeParams.get("id"));
     this.product = this.productsService.getOne(productId)
+    console.log(this.product);
+
 
   }
 }
