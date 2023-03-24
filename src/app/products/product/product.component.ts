@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 import { IProduct } from 'src/app/products';
 import { ProductsService } from 'src/app/products.service';
 
@@ -13,7 +14,8 @@ export class ProductComponent {
   quantity = 1;
   constructor(
     private productsService: ProductsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private notificationService: NotificationService
   ) {
   }
   ngOnInit(): void {
@@ -21,7 +23,8 @@ export class ProductComponent {
     const productId = Number(routeParams.get("id"));
     this.product = this.productsService.getOne(productId)
     console.log(this.product);
-
-
+  }
+  addCart() {
+    this.notificationService.notify("O produto foi adicionado ao carrinho")
   }
 }
