@@ -1,19 +1,20 @@
 <section class="product__container">
   <div class="product-image__container">
-      <img src="../../../assets/fone-de-ouvido-1.jpg" alt="Fone de ouvido">
+      <img [src]="product?.image" alt="product.description">
   </div>
   <div class="product-description__container">
-      <h2 class="product__name">Fone de ouvido</h2>
-      <h3 class="product__price">R$ 200.00</h3>
-      <p>Estoque disponível</p>
+      <h2 class="product__name">{{ product?.description }}</h2>
+      <h3 class="product__price">{{ product?.price | currency: "BRL" }}</h3>
+      <p>Diponível em estoque</p>
       <label for="">
           Quantidade:
-          <input type="number">
-          Unidade(s)
+          <!-- User entries a quantity (Minimum value = 1) -->
+          <input type="number" [(ngModel)]="quantity" min="1">
+          Unidades(s)
       </label>
       <p class="product__availability">
-          10 unidade(s) em estoque
+          {{ product?.stock }} unidade(s) em estoque
       </p>
-      <button>Adicione ao carrinho</button>
+      <button>Adicionar ao carrinho</button>
   </div>
 </section>

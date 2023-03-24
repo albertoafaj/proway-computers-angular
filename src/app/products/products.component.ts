@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IProduct, products } from '../products';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-products',
@@ -8,10 +9,11 @@ import { IProduct, products } from '../products';
 })
 export class ProductsComponent {
   products: IProduct[] | undefined = products;
-  constructor() { }
+  constructor(
+    private productsService: ProductsService
+  ) { }
   ngOnInit(): void {
-    console.log(this.products);
-
+    this.products = this.productsService.getAll();
   }
 
 }
