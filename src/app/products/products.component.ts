@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IProduct, products } from '../products';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IProduct } from '../products';
 import { ProductsService } from '../products.service';
 
 @Component({
@@ -7,13 +8,26 @@ import { ProductsService } from '../products.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent {
-  products: IProduct[] | undefined = products;
+export class ProductsComponent implements OnInit {
+  products: IProduct[] | undefined;
+
   constructor(
-    private productsService: ProductsService
+    private _productService: ProductsService,
+    private _router: ActivatedRoute
   ) { }
+
   ngOnInit(): void {
-    this.products = this.productsService.getAll();
+    const products = this._productService.getAll();
+    this._router.queryParamMap.subscribe(params => {
+      const description = params.get("description")?.toLowerCase();
+
+      if (description) {
+        this.products = products.filter(product => product.description.toLowerCase().includes(description));
+        return;
+      }
+
+      this.products = products;
+    });
   }
 
 }
