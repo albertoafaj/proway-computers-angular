@@ -7,15 +7,15 @@
 
     <nav class="main-header__menu">
       <ul>
-      <li><a>Produtos</a></li>
+      <li><a routerLink="/products">Produtos</a></li>
       <li>
-        <a>
+        <a routerLink="cart">
           <i class="fa-solid fa-cart-shopping"></i>
           Carrinho
           <span class="badge-shopcart">{{ cartService.getCart().length }}</span>
         </a>
       </li>
-      <li><a>Contato</a></li>
+      <li><a routerLink="contact">Contato</a></li>
       <li><a><i class="fa-brands fa-facebook"></i></a></li>
       <li><a><i class="fa-brands fa-instagram"></i></a></li>
       <li><a><i class="fa-brands fa-twitter"></i></a></li>
