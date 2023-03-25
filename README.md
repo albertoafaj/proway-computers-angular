@@ -1,27 +1,42 @@
 # ProwayComputers
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+ProwayComputers - e-ccommerce fictício de venda de artigos eletônicos.
 
-## Development server
+## Descrição do projeto: 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Desenvolvido como parte do curso de Angular da Proway, com o objetivo de desenvolver o front-end de um e-commerce.
 
-## Code scaffolding
+## Funcionalidades do projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* `Funcionalidade 1`: Listar produtos na pagina princiapal;
+* `Funcionalidade 2`: Pesquisar produtos por descrição;
+* `Funcionalidade 3`: Adicionar produtos ao carrinho de compras;
+* `Funcionalidade 4`: Enviar mensagem de contato;
 
-## Build
+## Demo:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![ProwayComputers - e-ccommerce](ProwayComputers.PNG)
 
-## Running unit tests
+## Instação:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Clonar o repositório:
+```
+$ git clone https://github.com/albertoafaj/proway-computers-angular
+```
+### Instalar as dependências:
+```
+$ npm install
+```
+### Rodando a aplicação:
+```
+$ npm start
+```
 
-## Running end-to-end tests
+## Tecnologias utilizadas
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* Angular
+* TypeScript
+* Javascript
+* HTML 5
+* CSS
+* Angular Material
