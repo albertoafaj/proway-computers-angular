@@ -1,0 +1,102 @@
+<h2 class="contact__title">Entre em contato</h2>
+<section class="contact__container">
+    <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="sendForm()">
+        <input 
+            type="text" 
+            placeholder="Preencha seu nome" 
+            formControlName="name"
+            [class.valid]="contactForm.controls['name'].valid"
+            [class.invalid]="contactForm.controls['name'].invalid && 
+            (contactForm.controls['name'].touched || contactForm.controls['name'].dirty)"
+        >
+        <div *ngIf="contactForm.controls['name'].invalid && 
+            (contactForm.controls['name'].touched || contactForm.controls['name'].dirty)"
+        >
+            <small class="error-message" *ngIf="contactForm.controls['name'].hasError('minlength')">
+              O campo deve ter pelo menos 4 caracteres.
+            </small>
+            <small class="error-message" *ngIf="contactForm.controls['name'].hasError('required')">
+              O campo deve ser preenchido
+            </small>
+        </div>
+        <input 
+            type="subject" 
+            placeholder="Informe o assunto" 
+            formControlName="subject"
+            [class.valid]="contactForm.controls['subject'].valid"
+            [class.invalid]="contactForm.controls['subject'].invalid && 
+            (contactForm.controls['subject'].touched || contactForm.controls['subject'].dirty)"
+        />
+        <div *ngIf="contactForm.controls['subject'].invalid && 
+            (contactForm.controls['subject'].touched || contactForm.controls['subject'].dirty)"
+        >
+            <small class="error-message" *ngIf="contactForm.controls['subject'].hasError('minlength')">
+              O campo deve ter pelo menos 10 caracteres
+            </small>
+            <small class="error-message" *ngIf="contactForm.controls['subject'].hasError('required')">
+              O campo deve ser preenchido
+            </small>
+        </div>
+        <input 
+            type="tel" 
+            placeholder="(00) 0 0000-0000" 
+            mask="(00) 0 0000-0000" 
+            formControlName="telephone"
+            [class.valid]="contactForm.controls['telephone'].valid"
+            [class.invalid]="contactForm.controls['telephone'].invalid && 
+            (contactForm.controls['telephone'].touched || contactForm.controls['telephone'].dirty)"
+        />
+        <div *ngIf="contactForm.controls['telephone'].invalid && 
+            (contactForm.controls['telephone'].touched || contactForm.controls['telephone'].dirty)"
+        >
+            <small class="error-message" *ngIf="contactForm.controls['telephone'].hasError('minlength')">
+              O campo deve ter pelo menos 11 caracteres
+            </small>
+            <small class="error-message" *ngIf="contactForm.controls['telephone'].hasError('required')">
+              O campo deve ser preenchido
+            </small>
+        </div>
+        <input 
+            type="email" 
+            placeholder="Informe seu e-mail" 
+            formControlName="email"
+            [class.valid]="contactForm.controls['email'].valid"
+            [class.invalid]="contactForm.controls['email'].invalid && 
+            (contactForm.controls['email'].touched || contactForm.controls['email'].dirty)"
+        />
+        <div *ngIf="contactForm.controls['email'].invalid && 
+            (contactForm.controls['email'].touched || contactForm.controls['email'].dirty)"
+        >
+            <small class="error-message" *ngIf="contactForm.controls['email'].hasError('email')">
+              O campo deve ser preenchido com um e-mail valido.
+            </small>
+            <small class="error-message" *ngIf="contactForm.controls['email'].hasError('required')">
+              O campo deve ser preenchido
+            </small>
+        </div>
+        <textarea 
+            maxlength="300" 
+            placeholder="Digite uma menssagem"
+            rows="4"
+            formControlName="message"
+            [class.valid]="contactForm.controls['message'].valid"
+            [class.invalid]="contactForm.controls['message'].invalid && 
+            (contactForm.controls['message'].touched || contactForm.controls['message'].dirty)"
+        ></textarea>
+        <div *ngIf="contactForm.controls['message'].invalid && 
+            (contactForm.controls['message'].touched || contactForm.controls['message'].dirty)"
+        >
+            <small class="error-messa     ge" *ngIf="contactForm.controls['message'].hasError('minlength')">
+              O campo deve ter pelo menos 20 caracteres
+            </small>
+            <small class="error-message" *ngIf="contactForm.controls['message'].hasError('required')">
+              O campo deve ser preenchido.
+            </small>
+        </div>
+        <button [disabled]="contactForm.invalid" type="submit">Enviar</button>
+    </form>
+    <address>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14230.300361031368!2d-49.0703074!3d-26.9169772!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa5ec9dd8406a6a7!2sProWay!5e0!3m2!1spt-BR!2sbr!4v1662644714470!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <p>7 de Setembro Street, 1600 - 14th floor - Center, Blumenau - SC, 89010-204</p>
+    </address>
+</section>
